@@ -91,8 +91,7 @@ class Main {
                             // Get roman number
                             Optional<RomanNumeral> roman = RomanNumeral.valueOf(result-1);
 
-                            // If it could be converted into a readable result -> do it,
-                            // otherwise tell user they have messed something up
+                            // Converted Arabic into Roman
                             if (roman.isPresent()) {
                                 return String.valueOf(roman.get());
                             } else {
