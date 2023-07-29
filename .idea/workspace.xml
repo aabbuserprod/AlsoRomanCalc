@@ -7,10 +7,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="16a0e312-ab6b-4217-8c23-0a357cffae20" name="Changes" comment="2Do: convert Result to Roman">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
-    </list>
+    <list default="true" id="16a0e312-ab6b-4217-8c23-0a357cffae20" name="Changes" comment="need a review by mentor" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -73,12 +70,21 @@
       <option name="project" value="LOCAL" />
       <updated>1690625626206</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="need a review by mentor">
+      <option name="closed" value="true" />
+      <created>1690629166157</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1690629166157</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="2Do: convert Result to Roman" />
-    <option name="LAST_COMMIT_MESSAGE" value="2Do: convert Result to Roman" />
+    <MESSAGE value="need a review by mentor" />
+    <option name="LAST_COMMIT_MESSAGE" value="need a review by mentor" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/KataCalc$Main.ic" NAME="Main Coverage Results" MODIFIED="1690539134670" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
