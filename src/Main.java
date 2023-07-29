@@ -26,7 +26,9 @@ class Main {
         }
 
         static Optional<RomanNumeral> valueOf(int value) {
-            return Arrays.stream(values()).filter(i -> i.ordinal() == value).findFirst();
+            return Arrays.stream(values())
+                    .filter(i -> i.ordinal() == value)
+                    .findFirst();
         }
     }
 
@@ -89,7 +91,8 @@ class Main {
                             // Get roman number
                             Optional<RomanNumeral> roman = RomanNumeral.valueOf(result-1);
 
-                            // If it could be converted into a readable result -> do it, otherwise tell user they have messed something up
+                            // If it could be converted into a readable result -> do it,
+                            // otherwise tell user they have messed something up
                             if (roman.isPresent()) {
                                 return String.valueOf(roman.get());
                             } else {
