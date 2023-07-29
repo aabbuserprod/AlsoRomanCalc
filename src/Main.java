@@ -1,27 +1,32 @@
+import java.util.Arrays;
+import java.util.Optional;
 import java.util.Scanner;
 class Main {
     enum RomanNumeral {
+
         I(1), II(2), III(3), IV(4), V(5), VI(6), VII(7), VIII(8), IX(9), X(10),
         XI(11), XII(12), XIII(13), XIV(14), XV(15), XVI(16), XVII(17), XVIII(18), XIX(19), XX(20),
-        XXI(21), XXII(22), XXIV(24), XXV(25), XXVII(27), XXVIII(28), XXX(30),
-        XXXI(31), XXXII(32), XXXIV(34), XXXV(35), XXXVI(36), XL(40),
-        XLII(42), XLV(45), XLVIII(48), XLIX(49), L(50),
-        LIV(54), LVI(56), LX(60),
-        LXIII(63), LXIV(64), LXX(70),
-        LXXII(72), LXXX(80),
-        LXXXI(81), XC(90),
-        C(100);
+        XXI(21), XXII(22), XXIII(23), XXIV(24), XXV(25), XXVI(26), XXVII(27), XXVIII(28), XXIX(29), XXX(30),
+        XXXI(31), XXXII(32), XXXIII(33), XXXIV(34), XXXV(35), XXXVI(36), XXXVII(37), XXXVIII(38), XXXIX(39), XL(40),
+        XLI(41), XLII(42), XLIII(43), XLIV(44), XLV(45), XLVI(46), XLVII(47), XLVIII(48), XLIX(49), L(50),
+        LI(51), LII(52), LIII(53), LIV(54), LV(55), LVI(56), LVII(57), LVIII(58), LIX(59), LX(60),
+        LXI(61), LXII(62), LXIII(63), LXIV(64), LXV(65), LXVI(66), LXVII(67), LXVIII(68), LXIX(69), LXX(70),
+        LXXI(71), LXXII(72), LXXIII(73), LXXIV(74), LXXV(75), LXXVI(76), LXXVII(77), LXXVIII(78), LXXIX(79), LXXX(80),
+        LXXXI(81), LXXXII(82), LXXXIII(83), LXXXIV(84), LXXXV(85), LXXXVI(86), LXXXVII(87), LXXXVIII(88), LXXXIX(89), XC(90),
+        XCI(91), XCII(92), XCIII(93), XCIV(94), XCV(95), XCVI(96), XCVII(97), XCVIII(98), XCIX(99), C(100), CI(101);
 
-        private String value;
-
+        final String value;
 
         RomanNumeral(int value) {
             this.value = String.valueOf(value);
         }
 
-
-        public String getValue() {
+        String getValue() {
             return value;
+        }
+
+        static Optional<RomanNumeral> valueOf(int value) {
+            return Arrays.stream(values()).filter(i -> i.ordinal() == value).findFirst();
         }
     }
 
@@ -41,15 +46,13 @@ class Main {
         } catch (IllegalArgumentException e) {
             System.out.println("Error: " + e.getMessage());
         }
-
-        //System.out.println(RomanNumeral.XLII.getValue());
-
     }
 
-    public static String calc(String input) {
+    static String calc(String input) {
 
         // Split input to operands and operator
         String[] chunks = input.split("\\s");
+
         if (chunks.length != 3) {
             throw new IllegalArgumentException("Illegal format of equation. Separate operand and the operator with a single space");
         } else {
@@ -70,7 +73,6 @@ class Main {
                     if (a < 1 || a > 10 || b < 1 || b > 10) {
                         throw new IllegalArgumentException("The calculator operates with integers from 1 to 10");
                     } else {
-
                         // Select and perform operation by operand (chunk[1])
                         int result = switch (chunks[1]) {
                             case "+" -> a + b;
@@ -84,11 +86,19 @@ class Main {
                         if (result < 1 && chunks[0].matches("\\w+") && chunks[2].matches("\\w+")) {
                             throw new IllegalArgumentException("The result with Roman numerals cannot be less then 1");
                         } else {
-                            return String.valueOf(result);
+                            // Get roman number
+                            Optional<RomanNumeral> roman = RomanNumeral.valueOf(result-1);
+
+                            // If it could be converted into a readable result -> do it, otherwise tell user they have messed something up
+                            if (roman.isPresent()) {
+                                return String.valueOf(roman.get());
+                            } else {
+                                throw new IllegalArgumentException("Out of bounds");
+                            }
                         }
                     }
                 }
-                // It's an Arabic
+                // It's a Arabic
                 else {
                     int a, b;
                     a = Integer.parseInt(num1);
@@ -108,7 +118,6 @@ class Main {
                         default ->
                                 throw new IllegalArgumentException("Check operator (Calculator can add, subtract, multiply or divide only)");
                     };
-
                     return String.valueOf(result);
                 }
             }
