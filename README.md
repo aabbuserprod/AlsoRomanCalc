@@ -1,0 +1,2 @@
+# KataCalc
+study case
