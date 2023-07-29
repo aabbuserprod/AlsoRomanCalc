@@ -12,15 +12,6 @@ class Main {
         LXXXI(81), XC(90),
         C(100);
 
-        int Roman;
-        void Roman(int r) {
-            r = Roman;
-        }
-
-        int getSide(){
-            return Roman;
-        }
-
         private String value;
 
 
@@ -97,7 +88,7 @@ class Main {
                         }
                     }
                 }
-                // It's a Arabic
+                // It's an Arabic
                 else {
                     int a, b;
                     a = Integer.parseInt(num1);
