@@ -2,6 +2,7 @@ import java.util.Arrays;
 import java.util.Optional;
 import java.util.Scanner;
 class Main {
+
     enum RomanNumeral {
 
         I(1), II(2), III(3), IV(4), V(5), VI(6), VII(7), VIII(8), IX(9), X(10),
@@ -33,6 +34,7 @@ class Main {
     }
 
     public static void main(String[] args) {
+
         Scanner scanner = new Scanner(System.in);
         System.out.println("""
                 Type an equation and hit 'Enter'. Here some tips for You:
